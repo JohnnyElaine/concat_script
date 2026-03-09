@@ -1,6 +1,7 @@
 #only works in powershell version 7+
 
-$files = Get-ChildItem -Path .\* -Include *.mp4, *.ts -Exclude "*concat*" | Select Name, BaseName | Sort-Object {[int]([regex]::Matches($_.BaseName, '(\d+)(?!\d.*)')[-1].Value)}
+$files = Get-ChildItem -Path .\* -Include *.mp4, *.ts -Exclude "*concat*" -File | Sort-Object Name | Select Name, BaseName
+#$files = Get-ChildItem -Path .\* -Include *.mp4, *.ts -Exclude "*concat*" | Select Name, BaseName | Sort-Object {[int]([regex]::Matches($_.BaseName, '(\d+)(?!\d.*)')[-1].Value)}
 #$files = Get-ChildItem -Path .\* -Include *.mp4, *.ts -Exclude "*concat*" | Select Name, BaseName
 
 $str = "" 
